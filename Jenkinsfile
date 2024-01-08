@@ -11,7 +11,6 @@ pipeline {
                 echo 'developing the application...'
                 echo "Executing Nodejs ${NODE_VERSION}"
                 nodejs('Nodejs-20_2_0') {
-                    sh 'yarn install'
                     echo 'yarn installed successfully'
                 }
                 echo "Executing yarn ${YARN_VERSISON}"
