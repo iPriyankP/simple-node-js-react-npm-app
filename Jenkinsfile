@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    envirnoments{
+    environment {
         NODE_VERSION = '20.2.0'
         YARN_VERSION = '1.22.19'
         SERVER_CREDENTIALS = credentials('server-credentials')
