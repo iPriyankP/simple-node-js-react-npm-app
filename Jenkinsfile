@@ -3,7 +3,7 @@ pipeline {
     environment {
         NODE_VERSION = '20.2.0'
         YARN_VERSION = '1.22.19'
-        SERVER_CREDENTIALS = credentials('server-credentials')
+        SERVER_CREDENTIALS = credentialsId('server-credentials')
     }
     stages {
         stage('development') {
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo 'testing the application...'
                 withCredentials([
-                    usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PWD)
+                    usernamePassword(credentialsId: 'server-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')
                 ]){
                     sh "some script ${USER} ${PWD}"
                 }
