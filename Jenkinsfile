@@ -3,14 +3,14 @@ pipeline {
     environment {
         NODE_VERSION = '20.2.0'
         YARN_VERSION = '1.22.19'
-        SERVER_CREDENTIALS = credentialsId('server-credentials')
+        SERVER_CREDENTIALS = credentials('server-credentials')
     }
     stages {
         stage('development') {
             steps {
                 echo 'developing the application...'
                 echo "Executing Nodejs ${NODE_VERSION}"
-                echo "Executing yarn ${YARN_VERSISON}"
+                echo "Executing yarn ${YARN_VERSION}"
             }
         }
         stage('Build') {
