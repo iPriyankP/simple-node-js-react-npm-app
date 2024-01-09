@@ -33,7 +33,7 @@ pipeline {
                 withCredentials([
                     usernamePassword(credentialsId: 'server-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')
                 ]){
-                    echo "some script ${USER} ${PWD}"
+                    bat 'echo %USER% %PWD%'
                 }
             }
         }
