@@ -39,9 +39,10 @@ pipeline {
             post {
                 always {
                     echo 'success'
-                    emailext body:'Test Success Message',
+                    emailext body:'Test Success Message. This is auto generated email from Jenkins from pipeline. 
+                                                    Do not Reply.',
                         subject: 'The Pipeline successfully executed Test stage :)',
-                        to: 'priyank.magnates@gmail.com'
+                        to: 'priyank.magnates@gmail.com, priyank.patel@magnatesage.com, nevil.gambhava@magnatesage.com'
                 }
                 failure {
                     emailext body:'Test Message',
