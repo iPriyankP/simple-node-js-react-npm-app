@@ -39,14 +39,15 @@ pipeline {
             post {
                 always {
                     echo 'success'
+                    mail to: priyankpatel@magnatesage.com, subject: 'The Pipeline success :)'
                     emailext body:'Test Success Message',
                         subject: 'The Pipeline successfully executed Test stage :)',
-                        to: 'priyank.patel@magnatesage.com'
+                        to: 'priyankpatel@magnatesage.com'
                 }
                 failure {
                     emailext body:'Test Message',
                         subject: 'The Pipeline failed :(',
-                        to: 'priyank.patel@magnatesage.com'
+                        to: 'priyankpatel@magnatesage.com'
                 }
             }
         }
