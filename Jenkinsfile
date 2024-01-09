@@ -4,6 +4,7 @@ pipeline {
         NODE_VERSION = '20.2.0'
         YARN_VERSION = '1.22.19'
         SERVER_CREDENTIALS = credentials('server-credentials')
+        BRANCH_NAME = "${GIT_BRANCH.split('/').size() > 1 ? GIT_BRANCH.split('/')[1..-1].join('/') : GIT_BRANCH}"
     }
     parameters {
         choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'] , description: '')
@@ -15,6 +16,7 @@ pipeline {
                 echo 'developing the application...'
                 echo "Executing Nodejs ${NODE_VERSION}"
                 echo "Executing yarn ${YARN_VERSION}"
+                echo "Branch Name ${BRANCH_NAME}"
             }
         }
         stage('Build') {
