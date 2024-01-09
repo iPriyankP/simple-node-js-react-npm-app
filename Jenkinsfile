@@ -37,6 +37,14 @@ pipeline {
                 }
             }
         }
+        post {
+            always {
+                echo 'success'
+            }
+            failure {
+                mail to: 'priyank.patel@magnatesage.com', subject: 'The Pipeline failed :('
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'deploying the application...'
