@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo 'building the application...'
                 @echo off
-                echo GIT_COMMIT %GIT_COMMIT% 
+                echo "GIT_COMMIT ${GIT_COMMIT}" 
                 echo GIT_BRANCH %GIT_BRANCH%
                 echo GIT_LOCAL_BRANCH %GIT_LOCAL_BRANCH%
                 echo GIT_PREVIOUS_COMMIT %GIT_PREVIOUS_COMMIT%
