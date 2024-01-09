@@ -33,7 +33,7 @@ pipeline {
                 withCredentials([
                     usernamePassword(credentialsId: 'server-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')
                 ]){
-                    bat 'echo %USER% %PWD%'
+                    echo "${USER} ${PWD}"
                 }
             }
         }
@@ -48,7 +48,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'deploying the application...'
-                bat 'echo %SERVER_CREDENTIALS%'
+                echo "${SERVER_CREDENTIALS}"
                 echo "deploying version ${params.VERSION}"
             }
         }
