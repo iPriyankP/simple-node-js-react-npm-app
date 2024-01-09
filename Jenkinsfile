@@ -39,6 +39,9 @@ pipeline {
             post {
                 always {
                     echo 'success'
+                    emailtext body:'Test Success Message',
+                        subject: 'The Pipeline successfully executed Test stage :)',
+                        to: 'priyankpatel@magnatesage.com'
                 }
                 failure {
                     emailtext body:'Test Message',
