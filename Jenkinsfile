@@ -42,7 +42,7 @@ pipeline {
                 echo 'success'
             }
             failure {
-                mail to: 'priyank.patel@magnatesage.com', subject: 'The Pipeline failed :('
+                mailto: 'priyank.patel@magnatesage.com', subject: 'The Pipeline failed :('
             }
         }
         stage('Deploy') {
