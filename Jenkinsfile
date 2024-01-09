@@ -41,12 +41,12 @@ pipeline {
                     echo 'success'
                     emailext body:'Test Success Message',
                         subject: 'The Pipeline successfully executed Test stage :)',
-                        to: 'priyankpatel@magnatesage.com'
+                        to: 'priyank.patel@magnatesage.com'
                 }
                 failure {
                     emailext body:'Test Message',
                         subject: 'The Pipeline failed :(',
-                        to: 'priyankpatel@magnatesage.com'
+                        to: 'priyank.patel@magnatesage.com'
                 }
             }
         }
