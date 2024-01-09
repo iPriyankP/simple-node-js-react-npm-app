@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'deploying the application...'
-                echo "Deploying with ${SERVER_CREDENTIALS}"
+                bat 'echo %SERVER_CREDENTIALS%'
                 echo "deploying version ${params.VERSION}"
             }
         }
