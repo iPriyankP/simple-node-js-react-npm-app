@@ -20,7 +20,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'building the application...'
-                @echo off
+                echo ''
                 echo "GIT_COMMIT ${GIT_COMMIT}" 
                 echo "GIT_BRANCH ${GIT_BRANCH}"
                 echo "GIT_LOCAL_BRANCH ${GIT_LOCAL_BRANCH}"
