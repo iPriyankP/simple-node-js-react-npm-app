@@ -36,15 +36,15 @@ pipeline {
                     echo "${USER} ${PWD}"
                 }
             }
-        }
-        post {
-            always {
-                echo 'success'
-            }
-            failure {
-                emailtext body:'Test Message',
-                    subject: 'The Pipeline failed :(',
-                    to: 'priyankpatel@magnatesage.com'
+            post {
+                always {
+                    echo 'success'
+                }
+                failure {
+                    emailtext body:'Test Message',
+                        subject: 'The Pipeline failed :(',
+                        to: 'priyankpatel@magnatesage.com'
+                }
             }
         }
         stage('Deploy') {
