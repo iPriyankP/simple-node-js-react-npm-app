@@ -16,14 +16,11 @@ pipeline {
                 script {
                     if (env.BRANCH_NAME == 'master') {
                         echo "current branch ${BRANCH_NAME}"
-                    }
-                    if (env.BRANCH_NAME == 'dev') {
+                    } else if (env.BRANCH_NAME == 'dev') {
                         echo "current branch ${BRANCH_NAME}"
-                    }
-                    if (env.BRANCH_NAME == 'staging') {
+                    } else if (env.BRANCH_NAME == 'staging') {
                         echo "current branch ${BRANCH_NAME}"
-                    }
-                    else {
+                    } else {
                         echo "current branch ${BRANCH_NAME}"
                     }
                 }
