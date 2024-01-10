@@ -14,11 +14,12 @@ pipeline {
         stage('branch check') {
             steps {
                 script {
-                    if (${BRANCH_NAME} === 'master') {
+                    def CURRENT_BRANCH = env.BRANCH_NAME
+                    if (CURRENT_BRANCH === 'master') {
                         echo "current branch ${BRANCH_NAME}"
-                    } else if (${BRANCH_NAME} === 'dev') {
-                        echo "current branch ${BRANCH_NAME}"
-                    } else if (${BRANCH_NAME} === 'staging') {
+                    } else if (CURRENT_BRANCH === 'dev') {
+                        echo "current branch ${BRANCH_NAME} CURRENT_BRANCH"
+                    } else if (CURRENT_BRANCH === 'staging') {
                         echo "current branch ${BRANCH_NAME}"
                     }
                 }
