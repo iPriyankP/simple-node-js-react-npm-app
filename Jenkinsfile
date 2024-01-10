@@ -11,7 +11,14 @@ pipeline {
         booleanParam(name: 'executeTest', defaultValue: true, description: '')
     }
     stages {
-        stage('development') {
+        stage('branch check') {
+            if (${BRANCH_NAME} === 'master') {
+                echo "current branch ${BRANCH_NAME}"
+            } else if (${BRANCH_NAME} === 'dev') {
+                echo "current branch ${BRANCH_NAME}"
+            } else if (${BRANCH_NAME} === 'staging') {
+                echo "current branch ${BRANCH_NAME}"
+            }
             steps {
                 echo 'developing the application...'
                 echo "Executing Nodejs ${NODE_VERSION}"
@@ -46,7 +53,7 @@ pipeline {
                     echo 'success'
                     emailext body:'Test Success Message. This is auto generated email from Jenkins from pipeline. Do not Reply.',
                         subject: 'The Pipeline successfully executed Test stage :)',
-                        to: 'priyank.magnates@gmail.com, priyank.patel@magnatesage.com, nevil.gambhava@magnatesage.com'
+                        to: 'priyank.magnates@gmail.com, priyank.patel@magnatesage.com'
                 }
                 failure {
                     emailext body:'Test Message',
