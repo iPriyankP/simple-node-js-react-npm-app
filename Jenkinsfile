@@ -12,14 +12,16 @@ pipeline {
     }
     stages {
         stage('branch check') {
-            if (${BRANCH_NAME} === 'master') {
-                echo "current branch ${BRANCH_NAME}"
-            } else if (${BRANCH_NAME} === 'dev') {
-                echo "current branch ${BRANCH_NAME}"
-            } else if (${BRANCH_NAME} === 'staging') {
-                echo "current branch ${BRANCH_NAME}"
-            }
             steps {
+                script {
+                    if (${BRANCH_NAME} === 'master') {
+                        echo "current branch ${BRANCH_NAME}"
+                    } else if (${BRANCH_NAME} === 'dev') {
+                        echo "current branch ${BRANCH_NAME}"
+                    } else if (${BRANCH_NAME} === 'staging') {
+                        echo "current branch ${BRANCH_NAME}"
+                    }
+                }
                 echo 'developing the application...'
                 echo "Executing Nodejs ${NODE_VERSION}"
                 echo "Executing yarn ${YARN_VERSION}"
