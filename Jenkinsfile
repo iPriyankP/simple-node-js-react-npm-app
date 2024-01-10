@@ -13,13 +13,18 @@ pipeline {
     stages {
         stage('branch check') {
             steps {
-                def CURRENT_BRANCH=env.BRANCH_NAME
-                if (CURRENT_BRANCH === 'master') {
-                    echo "current branch ${BRANCH_NAME}"
-                } else if (CURRENT_BRANCH === 'dev') {
-                    echo "current branch ${BRANCH_NAME} CURRENT_BRANCH"
-                } else if (CURRENT_BRANCH === 'staging') {
-                    echo "current branch ${BRANCH_NAME}"
+                script {
+                    sh """
+                        if [ ${BRANCH_NAME} == 'master' ]
+                        then
+                            echo "current branch ${BRANCH_NAME}"
+                        elif [ ${BRANCH_NAME} == 'dev' ]
+                            echo "current branch ${BRANCH_NAME}"
+                        elif [ ${BRANCH_NAME} == 'staging' ]
+                            echo "current branch ${BRANCH_NAME}"
+                        else
+                            echo "current branch ${BRANCH_NAME}"
+                    """
                 }
                 echo 'developing the application...'
                 echo "Executing Nodejs ${NODE_VERSION}"
